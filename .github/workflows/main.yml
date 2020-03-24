@@ -1,0 +1,25 @@
+name: main
+
+concurrency: github.sha
+
+on:
+  workflow_run:
+    workflows: ["sleep 10s", "sleep 50s"]
+    types:
+      - completed
+
+jobs:
+  test:
+    name: echo test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo "Hello world"
+
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Debug
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
