@@ -2,12 +2,14 @@ name: sub-seq1
 on:
   push:
     paths:
-    - 'action-a/**'
+      - action-a/**
+    branches:
+      - main
 
 jobs:
   test:
     name: echo test
     runs-on: ubuntu-latest
     steps:
-    - name: test title
-      run: echo test
+      - name: test title
+        run: echo test
