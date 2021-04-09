@@ -1,14 +1,19 @@
 name: sub-seq1
 on:
-  push:
+#  push:
+#    paths:
+#      - action-a/**
+#      - config/**
+#    # AND
+#    branches:
+#      - main
+  # AND
+  workflow_run:
     paths:
       - action-a/**
       - config/**
-    # AND
     branches:
       - main
-  # OR
-  workflow_run:
     workflows: ["wf-main"]
     types:
       - completed
