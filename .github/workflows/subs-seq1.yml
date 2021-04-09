@@ -1,0 +1,11 @@
+name: sub-seq1
+on:
+  push:
+  - hello-github-actions/**
+
+jobs:
+  test:
+    name: echo test
+    runs-on: ubuntu-latest
+    steps:
+       run: echo test
