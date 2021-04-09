@@ -4,8 +4,10 @@ on:
     paths:
       - action-a/**
       - config/**
-    branches:
-      - main
+    workflow_run:
+      workflows: ["wf-main"]
+      types:
+        - completed
 
 jobs:
   test:
