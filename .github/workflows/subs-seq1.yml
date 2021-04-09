@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test title
-        run: echo test
+        run: echo testmain
