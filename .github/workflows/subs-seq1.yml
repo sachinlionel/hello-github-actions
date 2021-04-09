@@ -2,7 +2,7 @@ name: sub-seq1
 on:
   push:
     paths:
-    - 'hello-github-actions/**'
+    - 'action-a/**'
 
 jobs:
   test:
