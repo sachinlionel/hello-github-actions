@@ -4,8 +4,6 @@ on:
     paths:
       - action-a/**
       - config/**
-    branches:
-      - main
 
 jobs:
   test:
