@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - action-a/**
+      - config/**
     branches:
       - main
 
