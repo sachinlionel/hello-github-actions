@@ -4,8 +4,10 @@ on:
     paths:
       - action-a/**
       - config/**
-    branches:
-      - main
+    workflow_run:
+      workflows: ["wf-main"]
+      types:
+        - completed
 
 jobs:
   test:
@@ -13,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test title
-        run: echo test
+        run: echo testmain
