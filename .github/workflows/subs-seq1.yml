@@ -14,7 +14,7 @@ on:
       - config/**
     branches:
       - main
-    workflows: ["wf-main"]
+    workflows: ["wf-main", "env"]
     types:
       - completed
 
