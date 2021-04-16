@@ -35,5 +35,9 @@ jobs:
         if: steps.env.outputs.conclusion == 'success'
         run: echo testmain
 
+      - name: Do something with a passing build
+        if: steps.main.outputs.conclusion == 'success'
+        run: echo testmain
+
       - name: test title
         run: echo testmain
