@@ -23,5 +23,16 @@ jobs:
     name: echo test
     runs-on: ubuntu-latest
     steps:
+      - name: wait
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: env
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Do something with a passing build
+        if: steps.env.outputs.conclusion == 'success'
+
       - name: test title
         run: echo testmain
