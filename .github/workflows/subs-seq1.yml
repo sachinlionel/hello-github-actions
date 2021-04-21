@@ -23,9 +23,10 @@ jobs:
     name: echo test
     runs-on: ubuntu-latest
     steps:
-      - name: wait
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+       - name: Checkout the code
+         uses: actions/checkout@v2
+         with:
+            ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
         run: |
