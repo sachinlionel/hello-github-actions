@@ -9,11 +9,6 @@ on:
 #      - main
   # AND
   workflow_run:
-    paths:
-      - action-a/**
-      - config/**
-    branches:
-      - main
     workflows: ["wf-main"]
     types:
       - completed
@@ -31,4 +26,4 @@ jobs:
        - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
          run: |
            git_hash=$(git rev-parse --short "$GITHUB_SHA") &&
-           echo $git_hash
+           echo new$git_hash
