@@ -9,11 +9,6 @@ on:
 #      - main
   # AND
   workflow_run:
-    paths:
-      - action-a/**
-      - config/**
-    branches:
-      - main
     workflows: ["wf-main"]
     types:
       - completed
