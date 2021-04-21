@@ -30,4 +30,4 @@ jobs:
       - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
         run: |
           PP_IMAGE_TAG=$(${GITHUB_WORKSPACE}/script/version ${PP_SERVICE}_) &&
-          echo ${PP_IMAGE_TAG}_
+          echo ${PP_IMAGE_TAG}
