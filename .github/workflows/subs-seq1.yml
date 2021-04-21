@@ -31,6 +31,7 @@ jobs:
           checkName: build
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: wait for second
+        uses: fountainhead/action-wait-for-check@v1.0.0
         id: main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
