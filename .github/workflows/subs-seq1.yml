@@ -14,7 +14,7 @@ on:
       - config/**
     branches:
       - main
-    workflows: ["wf-main", "env"]
+    workflows: ["wf-main"]
     types:
       - completed
 
@@ -24,23 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: wait
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: env
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - name: wait for second
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ github.event.workflow_run.head_sha }}
 
-      - name: Do something with a passing build
-        if: steps.env.outputs.conclusion == 'success' && steps.main.outputs.conclusion == 'success'
-        run: echo testmain
-
-      - name: test title
-        run: echo testmain
+      - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
+        run: |
+          PP_IMAGE_TAG=$(${GITHUB_WORKSPACE}/script/version ${PP_SERVICE}_) &&
+          echo ${PP_IMAGE_TAG}
