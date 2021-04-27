@@ -4,10 +4,8 @@ on:
 #    paths:
 #      - action-a/**
 #      - config/**
-#    # AND
 #    branches:
 #      - main
-  # AND
   workflow_run:
     workflows: ["wf-main"]
     types:
@@ -18,12 +16,11 @@ jobs:
     name: echo test
     runs-on: ubuntu-latest
     steps:
-       - name: Checkout the code
+       - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
          uses: actions/checkout@v2
          with:
-            ref: ${{ github.event.workflow_run.head_sha }}
-
+           ref: ${{ github.event.workflow_run.head_sha }}
        - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
          run: |
            git_hash=$(git rev-parse --short "$GITHUB_SHA") &&
-           echo new$git_hash
+           echo new_$git_hash
