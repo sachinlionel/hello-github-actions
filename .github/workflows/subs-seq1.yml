@@ -15,13 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Checkout the code
-        uses: actions/checkout@v2
+         uses: actions/checkout@v2
           # https://github.community/t/workflow-run-not-working-as-expected/139342/4
           # Workflow_run can trigger workflow only on the default branch (master)
           # It is workaround for workflow_run trigger
           # to checkout not the default branch but the last commit
           # from the branch which triggered this workflow
-          with:
+         with:
            ref: ${{ github.event.workflow_run.head_sha }}
        - name: Set PP_IMAGE_TAG and PP_IMAGE env used in the next steps
          uses: actions/checkout@v2
