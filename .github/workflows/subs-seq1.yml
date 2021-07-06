@@ -8,8 +8,6 @@ on:
 #      - main
   workflow_run:
     workflows: ["wf-main"]
-    types:
-      - completed
 
 jobs:
   test:
