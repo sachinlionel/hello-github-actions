@@ -1,4 +1,4 @@
-name: sub-seq1
+name: sub-seq2
 on: [push]
 #  push:
 #    paths:
