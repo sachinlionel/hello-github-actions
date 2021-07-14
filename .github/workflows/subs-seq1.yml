@@ -1,11 +1,6 @@
 name: sub-seq1
+
 on:
-#  push:
-#    paths:
-#      - action-a/**
-#      - config/**
-#    branches:
-#      - main
   workflow_run:
     workflows: ["wf-main", "env"]
 
