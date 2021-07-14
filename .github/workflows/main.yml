@@ -1,6 +1,7 @@
 name: wf-main
 on: push
 
+concurrency: wait
 jobs:
   build:
     name: Hello world action

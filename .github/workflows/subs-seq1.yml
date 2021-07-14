@@ -9,6 +9,8 @@ on:
   workflow_run:
     workflows: ["wf-main", "env"]
 
+concurrency: wait
+
 jobs:
   test:
     name: echo test
