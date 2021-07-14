@@ -8,7 +8,6 @@ on: [push]
 #      - main
 #  workflow_run:
 #    workflows: ["wf-main"]
-concurrency: data-api-build
 jobs:
   test:
     name: echo test

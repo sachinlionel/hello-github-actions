@@ -7,8 +7,8 @@ on:
 #    branches:
 #      - main
   workflow_run:
-    workflows: ["wf-main"]
-concurrency: data-api-build
+    workflows: ["wf-main", "env"]
+concurrency: wait_for
 jobs:
   test:
     name: echo test
