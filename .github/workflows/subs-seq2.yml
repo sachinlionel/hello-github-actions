@@ -1,14 +1,13 @@
-name: sub-seq1
-on:
+name: sub-seq2
+on: [push]
 #  push:
 #    paths:
 #      - action-a/**
 #      - config/**
 #    branches:
 #      - main
-  workflow_run:
-    workflows: ["wf-main", "env"]
-
+#  workflow_run:
+#    workflows: ["wf-main"]
 jobs:
   test:
     name: echo test
