@@ -1,7 +1,7 @@
 name: sleep 50s
 on: push
 
-concurrency: github.sha
+concurrency: 50
 
 jobs:
   build:
